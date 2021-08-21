@@ -43,7 +43,7 @@ document.getElementById('add-512gb-storage').addEventListener('click', function(
     // console.log(storagePrice);
 
     // add extra storage cost
-    const extraStorageCost = document.getElementsByClassName('extra-storage-cost');
+    const extraStorageCost = document.getElementById('extra-storage-cost');
     const extraStorageCostText = extraStorageCost.innerText;
     const PreviousPrice = parseFloat(extraStorageCostText);
     extraStorageCost.innerText = PreviousPrice + storagePrice;
@@ -76,7 +76,7 @@ document.getElementById('add-1tb-storage').addEventListener('click', function(){
     // console.log(storage1TbPrice);
 
     // add extra 1TB storage cost
-    const extra1TbStorageCost = document.getElementsByClassName('extra-storage-cost');
+    const extra1TbStorageCost = document.getElementById('storage-cost-1tb');
     const extra1TbStorageCostText = extra1TbStorageCost.innerText;
     const PreviousPrice = parseFloat(extra1TbStorageCostText);
     extra1TbStorageCost.innerText = PreviousPrice + storage1TbPrice;
@@ -123,10 +123,26 @@ document.getElementById('prime-delivery-cost').addEventListener('click', functio
     // console.log(totalPrice);
 
     // add total
-    const total = document.getElementById('total');
+    const total =  document.getElementById('total');
     const totalText = total.innerText;
     const previousTotal = parseFloat(totalText);
     total.innerText = previousTotal + deliveryCostPrice;
     // console.log(total);
 });
+
+// Validate Promo Code
+
+function validate() {
+    let promoCode = 'stevekaku';
+    let input = document.getElementById('promo-code').value;
+    if(input.toLowerCase() == promoCode.toLowerCase()) {
+        document.getElementById('apply-promo').addEventListener('click', function(){
+            return true; 
+        });  
+    } 
+    else {
+        return false;
+    }
+};
+
 
